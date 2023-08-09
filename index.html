@@ -6,53 +6,36 @@
   <title>Jemma Smith</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
       background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
     .container {
-      padding: 50px;
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
     }
     h1 {
-      margin-bottom: 10px;
-      color: #333;
+      margin-top: 0;
     }
     p {
-      margin: 10px 0;
-      color: #777;
-    }
-    .linkedin {
-      font-size: 20px;
-      color: #0077B5;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .linkedin:hover {
-      color: #004B8E;
+      color: #333;
+      margin-top: 5px;
     }
     .skills {
-      margin-top: 30px;
-      font-weight: bold;
-      color: #444;
-    }
-    .animation-container {
-      display: inline-block;
       margin-top: 20px;
-      position: relative;
     }
     .animated-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-    .animated-text span {
       display: inline-block;
       opacity: 0;
-      transform: translateY(100%);
+      transform: translateY(20px);
       animation: slideUp 1s forwards;
     }
     @keyframes slideUp {
@@ -66,8 +49,8 @@
 <body>
   <div class="container">
     <h1>Jemma Smith</h1>
-    <p>Passionate about AI, Data Science, and Communication</p>
-    <a href="https://www.linkedin.com/in/jemma-smith-046b29aa/" class="linkedin" target="_blank">LinkedIn</a>
+    <p>Passionate about AI, Data Analysis, and Communication</p>
+    <p>Find me on <a href="https://www.linkedin.com/in/jemma-smith-046b29aa/" target="_blank">LinkedIn</a></p>
     <div class="skills">
       <p>Skills:</p>
       <div class="animation-container">
@@ -82,10 +65,12 @@
     </div>
   </div>
   <script>
-    const animatedText = document.querySelector('.animated-text');
-    const textSpans = animatedText.querySelectorAll('span');
-    textSpans.forEach((span, index) => {
-      span.style.animationDelay = `${index * 0.2}s`;
+    document.addEventListener("DOMContentLoaded", function() {
+      const animatedText = document.querySelector('.animated-text');
+      const textSpans = animatedText.querySelectorAll('span');
+      textSpans.forEach((span, index) => {
+        span.style.animation = `slideUp 1s ${index * 0.2}s forwards`;
+      });
     });
   </script>
 </body>
