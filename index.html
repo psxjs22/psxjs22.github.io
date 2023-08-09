@@ -17,13 +17,49 @@
     }
     h1 {
       margin-bottom: 10px;
+      color: #333;
     }
     p {
       margin: 10px 0;
+      color: #777;
     }
     .linkedin {
       font-size: 20px;
       color: #0077B5;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .linkedin:hover {
+      color: #004B8E;
+    }
+    .skills {
+      margin-top: 30px;
+      font-weight: bold;
+      color: #444;
+    }
+    .animation-container {
+      display: inline-block;
+      margin-top: 20px;
+      position: relative;
+    }
+    .animated-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .animated-text span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: slideUp 1s forwards;
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -32,6 +68,25 @@
     <h1>Jemma Smith</h1>
     <p>Passionate about AI, Data Science, and Communication</p>
     <a href="https://www.linkedin.com/in/jemma-smith-046b29aa/" class="linkedin" target="_blank">LinkedIn</a>
+    <div class="skills">
+      <p>Skills:</p>
+      <div class="animation-container">
+        <div class="animated-text">
+          <span>AI & Machine Learning</span>
+          <span>Data Analysis</span>
+          <span>Communication</span>
+          <span>Problem Solving</span>
+          <span>Team Collaboration</span>
+        </div>
+      </div>
+    </div>
   </div>
+  <script>
+    const animatedText = document.querySelector('.animated-text');
+    const textSpans = animatedText.querySelectorAll('span');
+    textSpans.forEach((span, index) => {
+      span.style.animationDelay = `${index * 0.2}s`;
+    });
+  </script>
 </body>
 </html>
